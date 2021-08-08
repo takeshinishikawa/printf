@@ -3,7 +3,8 @@
 static size_t	ft_nhexlen(unsigned int number)
 {
 	int	len;
-	
+
+	len = 0;
 	if (number == 0)
 		len = 1;
 	while (number)
@@ -18,7 +19,6 @@ char	*ft_itohex(char c, unsigned int n)
 {
 	char	*cvt_int;
 	char	*base;
-	size_t	needle;
 	size_t	len;
 
 	len = ft_nhexlen(n);
@@ -29,16 +29,15 @@ char	*ft_itohex(char c, unsigned int n)
 		base = ft_strdup("0123456789abcdef");
 	else
 		base = ft_strdup("0123456789ABCDEF");
-	needle = 0;
-	while ((n / 16) != 0)
-	{
-		cvt_int[needle] = base[n % 16];
-		n /= 16;
-		needle++;
-	}
-	cvt_int[needle] = base[n % 16];
-	needle++;
 	cvt_int[len] = '\0';
-	cvt_int = ft_reverthex(cvt_int);
+	len--;
+	while (len)
+	{
+		cvt_int[len] = base[n % 16];
+		n /= 16;
+		len--;
+	}
+	cvt_int[len] = base[n % 16];
+	free(base);
 	return (cvt_int);
 }

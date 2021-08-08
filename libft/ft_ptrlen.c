@@ -9,7 +9,7 @@ size_t	ft_ptrlen(uintptr_t number)
 		len = 1;
 	while (number)
 	{
-		number /= 10;
+		number /= 16;
 		len++;
 	}
 	return (len);

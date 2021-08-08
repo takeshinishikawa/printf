@@ -4,24 +4,24 @@ char	*ft_ptrtohex(uintptr_t n)
 {
 	char	*cvt_hex;
 	char	*base;
-	size_t	needle;
 	size_t	len;
 
-	len = ft_ptrlen(n);
+	len = ft_ptrlen(n) + 2;
 	cvt_hex = (char *)malloc((len + 1) * sizeof(char));
 	if (cvt_hex == NULL)
 		return (NULL);
 	base = ft_strdup("0123456789abcdef");
-	needle = 0;
+	cvt_hex[len] = '\0';
+	len--;
 	while ((n / 16) != 0)
 	{
-		cvt_hex[needle] = base[n % 16];
+		cvt_hex[len] = base[n % 16];
 		n /= 16;
-		needle++;
+		len--;
 	}
-	cvt_hex[needle] = base[n % 16];
-	needle++;
-	cvt_hex[len] = '\0';
-	cvt_hex = ft_strjoin("0x", ft_reverthex(cvt_hex));
+	cvt_hex[len] = base[n % 16];
+	cvt_hex[1] = 'x';
+	cvt_hex[0] = '0';
+	free(base);
 	return (cvt_hex);
 }

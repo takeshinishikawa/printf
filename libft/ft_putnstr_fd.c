@@ -2,9 +2,9 @@
 
 void	ft_putnstr_fd(char *s, int size, int fd)
 {
-	int counter;
+	int	counter;
 
-	counter = 0;	
+	counter = 0;
 	if (s == NULL)
 		return ;
 	while (*s && counter < size)

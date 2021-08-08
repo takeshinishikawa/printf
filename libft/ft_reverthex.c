@@ -6,7 +6,7 @@ char	*ft_reverthex(char *hex)
 	size_t	needle;
 	char	*temp;
 
-	len	= ft_strlen(hex);
+	len = ft_strlen(hex);
 	temp = (char *)malloc((len + 1) * sizeof(char));
 	if (temp == NULL)
 		return (NULL);
@@ -18,5 +18,6 @@ char	*ft_reverthex(char *hex)
 		len--;
 	}
 	temp[needle] = '\0';
+	free(hex);
 	return (temp);
 }

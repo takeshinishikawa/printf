@@ -62,7 +62,7 @@ char	*ft_reverthex(char *hex);
 char	*ft_itohex(char c, unsigned int n);
 char	*ft_ptrtohex(uintptr_t n);
 char	*ft_utoa(unsigned int n);
-size_t	ft_nlen(int number);
+int		ft_nlen(long long number);
 size_t	ft_unlen(unsigned int number);
 void	ft_putnchar_fd(char c, int n, int fd);
 void	ft_putnstr_fd(char *s, int size, int fd);

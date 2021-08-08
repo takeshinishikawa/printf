@@ -1,19 +1,19 @@
 #include "libft.h"
 
-size_t	ft_nlen(int number)
+int	ft_nlen(long long number)
 {
-	int	len;
+	int					len;
+	unsigned long long	aux;
 
 	len = 0;
-	if (number < 0)
-		len = 1;
-	else
-		len = 0;
+	aux = number;
 	if (number == 0)
 		len = 1;
-	while (number)
+	if (number < 0)
+		aux = number * -1;
+	while (aux)
 	{
-		number /= 10;
+		aux /= 10;
 		len++;
 	}
 	return (len);
