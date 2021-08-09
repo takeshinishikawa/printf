@@ -5,9 +5,10 @@ int	print_char(t_option *str, va_list arg)
 {
 	int	c;
 
-	c = va_arg(arg, int);
 	if (str->type == '%')
 		c = '%';
+	else
+		c = va_arg(arg, int);
 	str->str_len = 1;
 	if (str->width > 1)
 	{
